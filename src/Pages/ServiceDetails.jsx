@@ -22,7 +22,7 @@ const ServiceDetails = () => {
     }
   }, [service]);
 
-  // Handle review submission
+  // Handle  submission
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
 
