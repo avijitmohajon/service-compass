@@ -87,7 +87,7 @@ const HomeCards = ({ services }) => {
             <p className="font-medium mt-1">Category: {service.category}</p>
             <p className="font-semibold mt-1">Price: ${service.price}</p>
 
-            {/* See Details Button */}
+            
             <button
               onClick={() => navigate(`/services/${service._id}`)}
               className="mt-3 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition"
