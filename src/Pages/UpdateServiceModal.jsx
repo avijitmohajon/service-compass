@@ -91,7 +91,7 @@ const UpdateServiceModal = ({ isOpen, onClose, service, onSave }) => {
               Update
             </button>
 
-            {/* Close Button */}
+            
             <button
               type="button"
               onClick={onClose}
