@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import UpdateServiceModal from './UpdateServiceModal'; // Import the modal
+import UpdateServiceModal from './UpdateServiceModal'; 
 import { InfinitySpin } from 'react-loader-spinner';
 
 const MyServices = () => {
