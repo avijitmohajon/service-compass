@@ -9,7 +9,7 @@ const UpdateServiceModal = ({ isOpen, onClose, service, onSave }) => {
     }
   }, [service]);
 
-  // If service is null or undefined, do not render the modal
+  
   if (!isOpen || !updatedService) return null;
 
   const handleChange = (e) => {
@@ -83,7 +83,7 @@ const UpdateServiceModal = ({ isOpen, onClose, service, onSave }) => {
           </div>
 
           <div className="flex justify-between mt-6">
-            {/* Update Button */}
+            
             <button
               type="submit"
               className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
