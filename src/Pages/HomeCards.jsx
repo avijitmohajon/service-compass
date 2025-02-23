@@ -74,7 +74,7 @@ const HomeCards = ({ services }) => {
             key={service._id}
             className="rounded-lg shadow-2xl p-4 transition transform hover:scale-105 hover:shadow-xl bg-[#06364a]"
           >
-            {/* Service Image */}
+            
             <img
               src={service.image}
               alt={service.title}
