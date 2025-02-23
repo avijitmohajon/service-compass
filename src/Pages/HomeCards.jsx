@@ -27,7 +27,7 @@ const HomeCards = ({ services }) => {
     }
   });
 
-  // Limit to 6 services
+  // Limit to 6 services for home to show cards
   const limitedServices = sortedServices.slice(0, 6);
 
   return (
@@ -37,7 +37,7 @@ const HomeCards = ({ services }) => {
       </h2>
 
       <section className="flex flex-col md:flex-row justify-between items-center ">
-        {/* Search Bar */}
+        {/* Search Bar for title*/}
         <div className="flex  w-72 items-right space-x-2 border border-black rounded-md p-2 mb-6">
           <FaSearch className="mt-3 text-black" />
           <input
@@ -49,7 +49,7 @@ const HomeCards = ({ services }) => {
           />
         </div>
 
-        {/* Sort By Dropdown */}
+        {/* Sort Dropdown */}
         <div className="mb-6 ">
           <label htmlFor="sortBy" className="mr-2 text-lg text-black">
             Sort By:
@@ -67,7 +67,7 @@ const HomeCards = ({ services }) => {
         </div>
       </section>
 
-      {/* Responsive Grid Layout */}
+     
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {limitedServices.map((service) => (
           <div
