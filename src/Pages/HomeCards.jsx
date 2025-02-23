@@ -81,7 +81,7 @@ const HomeCards = ({ services }) => {
               className="w-full h-48 object-cover rounded-lg "
             />
 
-            {/* Service Info */}
+           
             <h3 className="text-xl font-semibold mt-3">{service.title}</h3>
             <p className="mt-2">{service.description.slice(0, 100)}...</p>
             <p className="font-medium mt-1">Category: {service.category}</p>
