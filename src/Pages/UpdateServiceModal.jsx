@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const UpdateServiceModal = ({ isOpen, onClose, service, onSave }) => {
   const [updatedService, setUpdatedService] = useState(service);
@@ -9,7 +9,6 @@ const UpdateServiceModal = ({ isOpen, onClose, service, onSave }) => {
     }
   }, [service]);
 
-  
   if (!isOpen || !updatedService) return null;
 
   const handleChange = (e) => {
@@ -56,7 +55,6 @@ const UpdateServiceModal = ({ isOpen, onClose, service, onSave }) => {
             />
           </div>
 
-          
           <div className="mb-4">
             <label className="block text-sm font-medium">Price:</label>
             <input
@@ -69,7 +67,6 @@ const UpdateServiceModal = ({ isOpen, onClose, service, onSave }) => {
             />
           </div>
 
-         
           <div className="mb-4">
             <label className="block text-sm font-medium">Image URL:</label>
             <input
@@ -83,7 +80,6 @@ const UpdateServiceModal = ({ isOpen, onClose, service, onSave }) => {
           </div>
 
           <div className="flex justify-between mt-6">
-            
             <button
               type="submit"
               className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
@@ -91,7 +87,6 @@ const UpdateServiceModal = ({ isOpen, onClose, service, onSave }) => {
               Update
             </button>
 
-            
             <button
               type="button"
               onClick={onClose}
