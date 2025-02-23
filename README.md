@@ -1,7 +1,7 @@
-# 📌 Service Review System
+# 📌 Service Compass
 
 ## 📖 Overview
-The **Service Review System** is a full-stack web application designed to enable users to add, review, and manage services. It offers authentication, CRUD operations, and secure database interactions to provide a seamless experience for users.
+The **Service Compass** is a full-stack web application designed to enable users to add, review, and manage services. It offers authentication, CRUD operations, and secure database interactions to provide a seamless experience for users.
 
 ## 🔗 Live URL
 [🌐 Live Demo](https://service-compass.web.app)
