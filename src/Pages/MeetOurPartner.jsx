@@ -46,7 +46,7 @@ const MeetOurPartner = () => {
             key={index}
             className="bg-[#67d0d2] shadow-lg rounded-2xl p-5 flex flex-col items-center text-center space-y-4 my-8 text-black mx-4 md:mx-6 lg:mx-8"
           >
-            {/* Sponsor Logo */}
+            
             <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full flex items-center justify-center overflow-hidden border border-black">
               <img
                 src={sponsor.logo}
@@ -55,13 +55,13 @@ const MeetOurPartner = () => {
               />
             </div>
 
-            {/* Sponsor Name */}
+           
             <h3 className="text-lg md:text-xl lg:text-2xl font-semibold mt-4">{sponsor.name}</h3>
 
-            {/* Sponsor Description */}
+            
             <p className="text-sm md:text-base lg:text-lg">{sponsor.description}</p>
 
-            {/* Visit Sponsor Button */}
+           
             <a
               href={sponsor.website}
               target="_blank"
