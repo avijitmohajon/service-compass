@@ -156,7 +156,7 @@ const MyServices = () => {
         </tbody>
       </table>
 
-      {/* Modal for editing service */}
+      {/* Modal */}
       <UpdateServiceModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
