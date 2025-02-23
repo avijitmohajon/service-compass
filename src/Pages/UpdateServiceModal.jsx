@@ -56,7 +56,7 @@ const UpdateServiceModal = ({ isOpen, onClose, service, onSave }) => {
             />
           </div>
 
-          {/* Price */}
+          
           <div className="mb-4">
             <label className="block text-sm font-medium">Price:</label>
             <input
