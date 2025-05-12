@@ -5,8 +5,8 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
 const ServiceDetails = () => {
-  const service = useLoaderData(); 
-  
+  const service = useLoaderData();
+
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   const [rating, setRating] = useState(0);
@@ -15,10 +15,12 @@ const ServiceDetails = () => {
   // Load existing reviews
   useEffect(() => {
     if (service?._id) {
-      fetch(`https://service-compass-server.vercel.app/reviews?serviceId=${service._id}`)
+      fetch(
+        `https://service-compass-server.vercel.app/reviews?serviceId=${service._id}`
+      )
         .then((res) => res.json())
-        .then((data) => setReviews(data))
-        // .catch((error) => console.error("Error fetching reviews:", error));
+        .then((data) => setReviews(data));
+      // .catch((error) => console.error("Error fetching reviews:", error));
     }
   }, [service]);
 
@@ -27,7 +29,11 @@ const ServiceDetails = () => {
     e.preventDefault();
 
     if (!user) {
-      return Swal.fire("Error!", "You must be logged in to submit a review.", "error");
+      return Swal.fire(
+        "Error!",
+        "You must be logged in to submit a review.",
+        "error"
+      );
     }
 
     const newReview = {
@@ -40,17 +46,20 @@ const ServiceDetails = () => {
       email: user.email,
     };
 
-    // console.log("Submitting review:", newReview); 
+    // console.log("Submitting review:", newReview);
 
     try {
-      const response = await fetch("https://service-compass-server.vercel.app/reviews", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newReview),
-      });
+      const response = await fetch(
+        "https://service-compass-server.vercel.app/reviews",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newReview),
+        }
+      );
       const data = await response.json();
 
-      // console.log("Server Response:", data); 
+      // console.log("Server Response:", data);
 
       if (data.insertedId) {
         Swal.fire("Success!", "Your review has been added.", "success");
@@ -65,7 +74,11 @@ const ServiceDetails = () => {
   };
 
   if (!service) {
-    return <p className="text-center text-lg font-semibold">Loading service details...</p>;
+    return (
+      <p className="text-center text-lg font-semibold">
+        Loading service details...
+      </p>
+    );
   }
 
   return (
@@ -83,20 +96,31 @@ const ServiceDetails = () => {
         <p className="text-gray-700 text-lg mt-2">{service.description}</p>
 
         <div className="flex justify-between mt-4 text-lg">
-          <span className="font-semibold text-blue-600">Category: {service.category}</span>
-          <span className="font-semibold text-green-600">Price: ${service.price}</span>
+          <span className="font-semibold text-blue-600">
+            Category: {service.category}
+          </span>
+          <span className="font-semibold text-green-600">
+            Price: ${service.price}
+          </span>
         </div>
       </div>
 
       {/* Reviews Section */}
       <div className="mt-8 ">
-        <h3 className="text-2xl font-semibold text-gray-800">Reviews ({reviews.length})</h3>
+        <h3 className="text-2xl font-semibold text-gray-800">
+          Reviews ({reviews.length})
+        </h3>
         <div className="mt-4 space-y-4">
           {reviews.length === 0 ? (
-            <p className="text-gray-500">No reviews yet. Be the first to add one!</p>
+            <p className="text-gray-500">
+              No reviews yet. Be the first to add one!
+            </p>
           ) : (
             reviews.map((review, index) => (
-              <div key={index} className="border p-4 rounded-lg shadow-lg text-base-300">
+              <div
+                key={index}
+                className="border p-4 rounded-lg shadow-lg text-base-300"
+              >
                 <div className="flex items-center space-x-4">
                   <img
                     src={review.userPhoto}
@@ -112,8 +136,12 @@ const ServiceDetails = () => {
                 <Rating
                   initialRating={review.rating}
                   readonly
-                  emptySymbol={<span className="text-gray-400 text-2xl">☆</span>}
-                  fullSymbol={<span className="text-yellow-700 text-2xl">★</span>}
+                  emptySymbol={
+                    <span className="text-gray-400 text-2xl">☆</span>
+                  }
+                  fullSymbol={
+                    <span className="text-yellow-700 text-2xl">★</span>
+                  }
                 />
               </div>
             ))
@@ -143,13 +171,12 @@ const ServiceDetails = () => {
                 emptySymbol={<span className="text-black  text-2xl">☆</span>}
                 fullSymbol={<span className="text-yellow-700 text-2xl">★</span>}
                 onChange={(value) => {
-                  // console.log("Selected rating:", value); 
+                  // console.log("Selected rating:", value);
                   setRating(value);
                 }}
               />
             </div>
 
-            
             <button
               type="submit"
               className="mt-4 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 transition"
@@ -158,7 +185,9 @@ const ServiceDetails = () => {
             </button>
           </form>
         ) : (
-          <p className="text-black mt-2">You must be logged in to add a review.</p>
+          <p className="text-black mt-2">
+            You must be logged in to add a review.
+          </p>
         )}
       </div>
     </div>

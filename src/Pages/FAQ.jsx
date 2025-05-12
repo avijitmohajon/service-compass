@@ -87,7 +87,6 @@ const FAQ = () => {
             >
               <div className="flex items-center justify-between">
                 <h3 className="text-lg md:text-xl font-semibold text-base-300 flex items-center">
-                  
                   {faq.question}
                 </h3>
                 <motion.span

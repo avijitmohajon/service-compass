@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { AuthContext } from '../AuthProvider/AuthProvider';
-import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
-import UpdateServiceModal from './UpdateServiceModal';
-import Loading from '../Components/Loading';
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import UpdateServiceModal from "./UpdateServiceModal";
+import Loading from "../Components/Loading";
 
 const MyServices = () => {
   const [services, setServices] = useState([]);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const { user, loading } = useContext(AuthContext);
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,7 +15,9 @@ const MyServices = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`https://service-compass-server.vercel.app/services?email=${user.email}`)
+      fetch(
+        `https://service-compass-server.vercel.app/services?email=${user.email}`
+      )
         .then((res) => res.json())
         .then((data) => setServices(data));
     }
@@ -23,34 +25,49 @@ const MyServices = () => {
 
   const handleDelete = (serviceId, serviceOwnerEmail) => {
     if (serviceOwnerEmail !== user.email) {
-      Swal.fire('Unauthorized!', 'You can only delete your own services.', 'error');
+      Swal.fire(
+        "Unauthorized!",
+        "You can only delete your own services.",
+        "error"
+      );
       return;
     }
 
     Swal.fire({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       text: "You won't be able to revert this!",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://service-compass-server.vercel.app/services/${serviceId}`, {
-          method: 'DELETE',
-        })
+        fetch(
+          `https://service-compass-server.vercel.app/services/${serviceId}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then(() => {
-            setServices(services.filter((service) => service._id !== serviceId));
-            Swal.fire('Deleted!', 'Your service has been deleted.', 'success');
+            setServices(
+              services.filter((service) => service._id !== serviceId)
+            );
+            Swal.fire("Deleted!", "Your service has been deleted.", "success");
           })
-          .catch(() => Swal.fire('Error!', 'Failed to delete service.', 'error'));
+          .catch(() =>
+            Swal.fire("Error!", "Failed to delete service.", "error")
+          );
       }
     });
   };
 
   const handleUpdate = (service) => {
     if (service.email !== user.email) {
-      Swal.fire('Unauthorized!', 'You can only update your own services.', 'error');
+      Swal.fire(
+        "Unauthorized!",
+        "You can only update your own services.",
+        "error"
+      );
       return;
     }
 
@@ -60,15 +77,22 @@ const MyServices = () => {
 
   const handleSaveUpdatedService = (updatedService) => {
     if (updatedService.email !== user.email) {
-      Swal.fire('Unauthorized!', 'You can only update your own services.', 'error');
+      Swal.fire(
+        "Unauthorized!",
+        "You can only update your own services.",
+        "error"
+      );
       return;
     }
 
-    fetch(`https://service-compass-server.vercel.app/services/${updatedService._id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updatedService),
-    })
+    fetch(
+      `https://service-compass-server.vercel.app/services/${updatedService._id}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedService),
+      }
+    )
       .then((res) => res.json())
       .then(() => {
         setServices(
@@ -76,10 +100,10 @@ const MyServices = () => {
             service._id === updatedService._id ? updatedService : service
           )
         );
-        Swal.fire('Updated!', 'Your service has been updated.', 'success');
+        Swal.fire("Updated!", "Your service has been updated.", "success");
         setIsModalOpen(false);
       })
-      .catch(() => Swal.fire('Error!', 'Failed to update service.', 'error'));
+      .catch(() => Swal.fire("Error!", "Failed to update service.", "error"));
   };
 
   const filteredServices = services.filter((service) =>
