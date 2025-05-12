@@ -3,30 +3,41 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer footer-center pt-3 pb-2 items-center justify-center bg-[#DAFFFB] text-black">
-      <aside>
-        <p className="text-xl font-medium">
-          <span className="text-xl md:text-4xl font-bold">Service Compass</span>
-          <br />
-          <span className="font-light text-2xl">❝ </span>
-          Providing reliable and top-quality services with customer satisfaction
-          at the core
-          <span className="font-light text-2xl"> ❞</span>
-        </p>
-      </aside>
-      <div className=" rounded-2xl px-8">
-        <nav className="flex flex-col gap-2  text-lg mb-2">
-          <h2 className="text-slate-300 text-xl">Explore More:</h2>
-          <div className="flex space-x-5">
-            <Link className="link link-hover">Service</Link>
-            <Link className="link link-hover">Reviews</Link>
-            <Link className="link link-hover">Privacy policy</Link>
-            <Link className="link link-hover">About us</Link>
-          </div>
-        </nav>
+    <footer className="bg-black text-white py-8 px-4">
+      <div className="max-w-6xl mx-auto flex flex-col items-center space-y-6">
+        {/* Logo & Slogan */}
+        <div className="text-center">
+          <h1 className="text-3xl md:text-4xl font-bold">Service Compass</h1>
+          <p className="mt-2 text-lg max-w-xl mx-auto">
+            <span className="text-2xl font-light">❝ </span>
+            Providing reliable and top-quality services with customer
+            satisfaction at the core
+            <span className="text-2xl font-light"> ❞</span>
+          </p>
+        </div>
 
-        <nav className=" border-dotted border-t-2 pt-4">
-          <p className="text-xl ">Stay Connected With Us :</p>
+        {/* Navigation Links */}
+        <div className="w-full">
+          <h2 className="text-xl mb-3 text-center ">Explore More:</h2>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-base">
+            <Link to="/services" className="hover:underline">
+              Service
+            </Link>
+            <Link to="/myreview" className="hover:underline">
+              Reviews
+            </Link>
+            <Link to="/privacy-policy" className="hover:underline">
+              Privacy Policy
+            </Link>
+            <Link to="/about-us" className="hover:underline">
+              About Us
+            </Link>
+          </div>
+        </div>
+
+        {/* Social Media */}
+        <div className="text-center w-[50vw] border-t border-gray-600 border-dashed pt-4">
+          <p className="text-lg mb-3">Stay Connected With Us :</p>
           <div className="grid grid-flow-col items-center mt-5 justify-center space-x-4">
             {/* Facebook */}
             <Link to="https://www.facebook.com/profile.php?id=100039609890568">
@@ -65,12 +76,13 @@ const Footer = () => {
               </svg>
             </Link>
           </div>
-        </nav>
-      </div>
+        </div>
 
-      <p className=" border-t-2 border-black pt-4 text-lg w-full">
-        Copyright © {new Date().getFullYear()} - All right reserved
-      </p>
+        {/* Copyright */}
+        <p className="text-center text-sm text-gray-400 border-t border-gray-700 pt-4 w-full">
+          © {new Date().getFullYear()} Service Compass. All rights reserved.
+        </p>
+      </div>
     </footer>
   );
 };

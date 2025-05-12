@@ -5,7 +5,7 @@ const MeetOurPartner = () => {
   const sponsors = [
     {
       name: "CineFlix",
-      logo: "https://i.ibb.co.com/0jXYFsQG/logo1.jpg", // Updated logo URL
+      logo: "https://i.ibb.co.com/0jXYFsQG/logo1.jpg",
       description: "Unlimited movies & TV shows anytime.",
       website: "https://www.cineflix.com",
     },
@@ -36,18 +36,18 @@ const MeetOurPartner = () => {
   ];
 
   return (
-    <div className="mt-8">
-      <h2 className="text-2xl lg:text-5xl font-bold  text-center bg-[#e2fbff] text-base-200 lg:py-5">
+    <div className="py-10 bg-[#adc5dd]">
+      <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-center text-base-200 mb-8">
         Meet Our Partner
       </h2>
+
       <Marquee pauseOnHover={true} gradient={false} speed={50}>
         {sponsors.map((sponsor, index) => (
           <div
             key={index}
-            className="bg-[#67d0d2] shadow-lg rounded-2xl p-5 flex flex-col items-center text-center space-y-4 my-8 text-black mx-4 md:mx-6 lg:mx-8"
+            className="bg-[#D9EAFD] shadow-lg rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-evenly text-center space-y-3 mx-3 sm:mx-5 w-[220px] sm:w-60 h-[260px] sm:h-60"
           >
-            
-            <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full flex items-center justify-center overflow-hidden border border-black">
+            <div className="rounded-full flex items-center justify-center overflow-hidden border border-black w-20 h-20">
               <img
                 src={sponsor.logo}
                 alt={sponsor.name}
@@ -55,21 +55,20 @@ const MeetOurPartner = () => {
               />
             </div>
 
-           
-            <h3 className="text-lg md:text-xl lg:text-2xl font-semibold mt-4">{sponsor.name}</h3>
+            <h3 className="text-base sm:text-lg font-semibold mt-2">
+              <a
+                href={sponsor.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline text-blue-600"
+              >
+                {sponsor.name}
+              </a>
+            </h3>
 
-            
-            <p className="text-sm md:text-base lg:text-lg">{sponsor.description}</p>
-
-           
-            <a
-              href={sponsor.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn bg-black text-white py-2 px-4 rounded-lg transition md:py-3 md:px-6 lg:py-3 lg:px-8"
-            >
-              Visit website
-            </a>
+            <p className="text-sm sm:text-base text-gray-700 px-2">
+              {sponsor.description}
+            </p>
           </div>
         ))}
       </Marquee>

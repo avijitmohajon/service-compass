@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import UpdateServiceModal from './UpdateServiceModal'; 
-import { InfinitySpin } from 'react-loader-spinner';
+import UpdateServiceModal from './UpdateServiceModal';
+import Loading from '../Components/Loading';
 
 const MyServices = () => {
   const [services, setServices] = useState([]);
@@ -17,8 +17,7 @@ const MyServices = () => {
     if (user) {
       fetch(`https://service-compass-server.vercel.app/services?email=${user.email}`)
         .then((res) => res.json())
-        .then((data) => setServices(data))
-        // .catch((error) => console.error('Error fetching services:', error));
+        .then((data) => setServices(data));
     }
   }, [user]);
 
@@ -44,7 +43,7 @@ const MyServices = () => {
             setServices(services.filter((service) => service._id !== serviceId));
             Swal.fire('Deleted!', 'Your service has been deleted.', 'success');
           })
-          .catch((error) => Swal.fire('Error!', 'Failed to delete service.', 'error'));
+          .catch(() => Swal.fire('Error!', 'Failed to delete service.', 'error'));
       }
     });
   };
@@ -88,75 +87,76 @@ const MyServices = () => {
   );
 
   return (
-    <div className="w-full mx-auto p-6 bg-[#387478]">
-      <h2 className="text-2xl md:text-5xl font-bold text-center mb-6 uppercase text-[#c9fbef]">My Services</h2>
+    <div className="w-full mx-auto p-6 bg-[#adc5dd]">
+      <h2 className="text-2xl md:text-5xl font-bold text-center mb-6 uppercase text-base-300">
+        My Services
+      </h2>
 
       <input
         type="text"
         placeholder="Search services"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="w-full p-2 mb-4 rounded-lg"
+        className="w-full p-2 mb-6 rounded-lg border  focus:outline-none focus:ring-2 focus:ring-base-300 glass outline outline-black outline-[1px] text-base-300 placeholder-base-300"
       />
 
-      <table className="w-full table-auto border-collapse bg-[#06364a] text-white ">
-        <thead className='flex flex-col md:flex-row '>
-          <tr >
-            <th className="p-4">Image</th>
-            <th className="p-4">Title</th>
-            <th className="p-4">Category</th>
-            <th className="p-4">Price</th>
-            <th className="p-4">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredServices.length === 0 ? (
-            <tr>
-              <td colSpan="5" className="text-center p-4">
-                {<div className="flex items-center justify-center ">
-                      <InfinitySpin
-                        visible={true}
-                        width="200"
-                        color="#4fa94d"
-                        ariaLabel="infinity-spin-loading"
-                      />
-                    </div>}
-              </td>
+      <div className="overflow-x-auto">
+        <table className="min-w-full table-auto bg-[#c4daf0] text-base-300 rounded-lg shadow-2xl">
+          <thead>
+            <tr className="bg-[#b3d1ea] text-left">
+              <th className="p-4">Image</th>
+              <th className="p-4">Title</th>
+              <th className="p-4">Category</th>
+              <th className="p-4">Price</th>
+              <th className="p-4">Actions</th>
             </tr>
-          ) : (
-            filteredServices.map((service) => (
-              <tr key={service._id} className='flex flex-col md:flex-row justify-between items-center'>
-                <td className="p-4 ">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-20 h-20 object-cover rounded-lg"
-                  />
-                </td>
-                <td className="p-4">{service.title}</td>
-                <td className="p-4">{service.category}</td>
-                <td className="p-4">${service.price}</td>
-                <td className="p-4">
-                  <button
-                    onClick={() => handleUpdate(service)}
-                    className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
-                  >
-                    Update
-                  </button>
-                  <button
-                    onClick={() => handleDelete(service._id, service.email)}
-                    className="ml-4 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700"
-                  >
-                    Delete
-                  </button>
+          </thead>
+          <tbody>
+            {filteredServices.length === 0 ? (
+              <tr>
+                <td colSpan="5" className="text-center p-6">
+                  <div className="flex items-center justify-center">
+                    <Loading />
+                  </div>
                 </td>
               </tr>
-            ))
-          )}
-        </tbody>
-      </table>
+            ) : (
+              filteredServices.map((service) => (
+                <tr
+                  key={service._id}
+                  className="border-t border-blue-200 hover:bg-[#d7e8f8] transition-colors"
+                >
+                  <td className="p-4">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-20 h-20 object-cover rounded-lg"
+                    />
+                  </td>
+                  <td className="p-4">{service.title}</td>
+                  <td className="p-4">{service.category}</td>
+                  <td className="p-4">${service.price}</td>
+                  <td className="p-4 flex flex-col sm:flex-row gap-2">
+                    <button
+                      onClick={() => handleUpdate(service)}
+                      className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+                    >
+                      Update
+                    </button>
+                    <button
+                      onClick={() => handleDelete(service._id, service.email)}
+                      className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
 
-      {/* Modal */}
       <UpdateServiceModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

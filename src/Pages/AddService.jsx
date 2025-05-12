@@ -165,7 +165,7 @@ const AddService = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 border shadow-lg rounded-lg my-10">
+    <div className="max-w-4xl mx-auto p-6 border border-base-300 shadow-lg rounded-lg my-10 bg-[#D8EAFC] text-base-300">
       <h2 className="text-2xl font-semibold text-center mb-6">
         Add a New Service
       </h2>
@@ -181,7 +181,7 @@ const AddService = () => {
             name="image"
             value={formData.image}
             onChange={handleChange}
-            className="w-full border rounded-lg p-2 mt-1"
+            className="w-full border rounded-lg p-2 mt-1 glass shadow-lg focus:outline focus:outline-base-300 outline outline-[1px] outline-gray-500"
             required
           />
         </div>
@@ -194,7 +194,7 @@ const AddService = () => {
             name="title"
             value={formData.title}
             onChange={handleChange}
-            className="w-full border rounded-lg p-2 mt-1"
+            className="w-full border rounded-lg p-2 mt-1 glass outline-none shadow-lg focus:outline focus:outline-base-300 outline outline-[1px] outline-gray-500"
             required
           />
         </div>
@@ -207,7 +207,7 @@ const AddService = () => {
             name="company"
             value={formData.company}
             onChange={handleChange}
-            className="w-full border rounded-lg p-2 mt-1"
+            className="w-full border rounded-lg p-2 mt-1 glass outline-none shadow-lg focus:outline focus:outline-base-300  outline outline-[1px] outline-gray-500"
             required
           />
         </div>
@@ -220,7 +220,7 @@ const AddService = () => {
             name="website"
             value={formData.website}
             onChange={handleChange}
-            className="w-full border rounded-lg p-2 mt-1"
+            className="w-full border rounded-lg p-2 mt-1 glass outline-none shadow-lg focus:outline focus:outline-base-300  outline outline-[1px] outline-gray-500"
             required
           />
         </div>
@@ -232,7 +232,7 @@ const AddService = () => {
             name="category"
             value={formData.category}
             onChange={handleChange}
-            className="w-full border rounded-lg p-2 mt-1"
+            className="w-full border rounded-lg p-2 mt-1 glass outline-none shadow-lg focus:outline focus:outline-base-300  outline outline-[1px] outline-gray-500"
             required
           >
             <option value="">Select a category</option>
@@ -252,7 +252,7 @@ const AddService = () => {
             name="price"
             value={formData.price}
             onChange={handleChange}
-            className="w-full border rounded-lg p-2 mt-1"
+            className="w-full border rounded-lg p-2 mt-1 glass outline-none shadow-lg focus:outline focus:outline-base-300  outline outline-[1px] outline-gray-500"
             required
           />
         </div>
@@ -264,7 +264,7 @@ const AddService = () => {
             name="description"
             value={formData.description}
             onChange={handleChange}
-            className="w-full border rounded-lg p-2 mt-1"
+            className="w-full rounded-lg p-2 mt-1 glass shadow-lg focus:outline focus:outline-base-300  outline outline-[1px] outline-gray-500"
             rows="3"
             required
           ></textarea>
@@ -277,7 +277,7 @@ const AddService = () => {
             type="text"
             value={formData.addedDate}
             disabled
-            className="w-full border rounded-lg p-2 mt-1 "
+            className="w-full border rounded-lg p-2 mt-1 glass outline-none  outline outline-[1px] outline-gray-500"
           />
         </div>
 
@@ -288,7 +288,7 @@ const AddService = () => {
             type="email"
             value={formData.userEmail}
             disabled
-            className="w-full border rounded-lg p-2 mt-1 "
+            className="w-full border  rounded-lg p-2 mt-1 glass outline-none  outline outline-[1px] outline-gray-500"
           />
         </div>
 
@@ -296,7 +296,7 @@ const AddService = () => {
         <div className="col-span-1 md:col-span-2">
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+            className="w-full bg-blue-600 text-base-300 font-semibold  py-2 rounded-lg hover:bg-blue-700 transition"
           >
             Add Service
           </button>

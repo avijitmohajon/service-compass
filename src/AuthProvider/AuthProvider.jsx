@@ -14,7 +14,6 @@ import { createContext, useEffect, useState } from "react";
 import React from "react";
 import { app } from "../FireBase/Firebase.config";
 
-
 export const AuthContext = createContext();
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();

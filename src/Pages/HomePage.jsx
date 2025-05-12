@@ -5,15 +5,20 @@ import HomeCards from "./HomeCards";
 import Stats from "./Stats";
 import MeetOurPartner from "./MeetOurPartner";
 import Header from "../Components/Header";
+import FAQ from "./FAQ";
+// import TopReviews from "./TopReviews";
 
 const HomePage = () => {
   const services = useLoaderData();
+  
   return (
-    <div >
+    <div>
       <Header></Header>
-      <Stats></Stats>
       <HomeCards services={services}></HomeCards>
+      <Stats></Stats>
+      {/* <TopReviews serviceId={services[0]?._id}/> */}
       <MeetOurPartner></MeetOurPartner>
+      <FAQ></FAQ>
       
     </div>
   );

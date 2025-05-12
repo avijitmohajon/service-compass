@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../MainLayout/MainLayout";
-import ErrorPage from "../Pages/ErrorPage";
 import HomePage from "../Pages/HomePage";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
@@ -10,31 +9,45 @@ import ServiceDetails from "../Pages/ServiceDetails";
 import MyReviews from "../Pages/MyReviews";
 import MyServices from "../Pages/MyServices";
 import SecureRouter from "./PrivateRoute";
+import Error from "../Pages/Error";
+
+// Base URL
+const baseURL = "https://service-compass-server.vercel.app";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout></MainLayout>,
-    errorElement: <ErrorPage></ErrorPage>,
+    element: <MainLayout />,
+    errorElement: <Error/>,
     children: [
       {
         path: "/",
-        element: <HomePage></HomePage>,
-        loader: () => fetch("https://service-compass-server.vercel.app/services"),
+        element: <HomePage />,
+        loader: async () => {
+          try {
+            const res = await fetch(`${baseURL}/services`);
+            if (!res.ok) {
+              throw new Response("Failed to load services", { status: res.status });
+            }
+            return res;
+          } catch (error) {
+            throw new Response("Network Error", { status: 500 });
+          }
+        },
       },
       {
         path: "/login",
-        element: <Login></Login>,
+        element: <Login />,
       },
       {
         path: "/register",
-        element: <Register></Register>,
+        element: <Register />,
       },
       {
         path: "/addservice",
         element: (
           <SecureRouter>
-            <AddService></AddService>
+            <AddService />
           </SecureRouter>
         ),
       },
@@ -42,22 +55,41 @@ const router = createBrowserRouter([
         path: "/services/:id",
         element: (
           <SecureRouter>
-            <ServiceDetails></ServiceDetails>
+            <ServiceDetails />
           </SecureRouter>
         ),
-        loader: ({ params }) =>
-          fetch(`https://service-compass-server.vercel.app/services/${params.id}`),
+        loader: async ({ params }) => {
+          try {
+            const res = await fetch(`${baseURL}/services/${params.id}`);
+            if (!res.ok) {
+              throw new Response("Service Not Found", { status: res.status });
+            }
+            return res;
+          } catch (error) {
+            throw new Response("Network Error", { status: 500 });
+          }
+        },
       },
       {
         path: "/services",
-        element: <Services></Services>,
-        loader: () => fetch("https://service-compass-server.vercel.app/services"),
+        element: <Services />,
+        loader: async () => {
+          try {
+            const res = await fetch(`${baseURL}/services`);
+            if (!res.ok) {
+              throw new Response("Failed to load services", { status: res.status });
+            }
+            return res;
+          } catch (error) {
+            throw new Response("Network Error", { status: 500 });
+          }
+        },
       },
       {
         path: "/myreview",
         element: (
           <SecureRouter>
-            <MyReviews></MyReviews>
+            <MyReviews />
           </SecureRouter>
         ),
       },
@@ -65,7 +97,7 @@ const router = createBrowserRouter([
         path: "/myservices",
         element: (
           <SecureRouter>
-            <MyServices></MyServices>
+            <MyServices />
           </SecureRouter>
         ),
       },
