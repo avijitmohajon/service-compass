@@ -4,10 +4,12 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 const Services = () => {
   const services = useLoaderData();
   const navigate = useNavigate();
-  
+
   return (
     <div className="w-full mx-auto p-6 bg-[#adc5dd]">
-      <h2 className="text-2xl md:text-5xl font-bold text-center mb-6 uppercase text-base-300">Our Services</h2>
+      <h2 className="text-2xl md:text-5xl font-bold text-center mb-6 uppercase text-base-300">
+        Our Services
+      </h2>
 
       {/* Responsive Grid Layout */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
