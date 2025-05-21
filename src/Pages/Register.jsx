@@ -170,13 +170,13 @@ const Register = () => {
           >
             Login now
           </Link>
-          <p className="text-center py-2">Or</p>
+          <p className="text-center font-bold py-2">Or</p>
           <button
             onClick={handleGoogleLogin}
-            className="btn text-lg w-full sm:w-auto border border-white flex items-center justify-center space-x-2  bg-green-500  font-semibold  py-2 rounded-lg hover:bg-blue-700 transition  glass text-white"
+            className="btn text-lg w-full sm:w-auto border border-white flex items-center justify-center space-x-2  bg-green-500  font-semibold  py-2 rounded-lg hover:bg-blue-700 transition  glass text-base-300"
           >
-            <FaGoogle className="text-xl" />
-            <span>Sign In with Google</span>
+            <FaGoogle className="md:text-xl text-sm" />
+            <span className="md:text-xl text-sm">Sign In with Google</span>
           </button>
         </div>
       </div>

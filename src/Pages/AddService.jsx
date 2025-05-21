@@ -296,7 +296,7 @@ const AddService = () => {
         <div className="col-span-1 md:col-span-2">
           <button
             type="submit"
-            className="w-full bg-blue-600 text-base-300 font-semibold  py-2 rounded-lg hover:bg-blue-700 transition"
+            className="w-full bg-blue-600 text-base-content font-semibold  py-2 rounded-lg hover:bg-blue-700 transition"
           >
             Add Service
           </button>

@@ -2,12 +2,16 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { UserLogin, setUser } = useContext(AuthContext);
-
+  const { UserLogin, setUser, loginWithGoogle } = useContext(AuthContext);
+  const handleGoogleLogin = async () => {
+    const user = await loginWithGoogle();
+    navigate("/");
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -91,6 +95,16 @@ const Login = () => {
             </Link>
           </div>
         </form>
+        <div className="flex flex-col">
+          <p className="text-center font-bold py-2">Or</p>
+          <button
+            onClick={handleGoogleLogin}
+            className="btn text-lg w-full sm:w-auto border border-white flex items-center justify-center space-x-2  bg-green-500  font-semibold  py-2 rounded-lg hover:bg-blue-700 transition  glass text-base-300"
+          >
+            <FaGoogle className="md:text-xl text-sm" />
+            <span className="md:text-xl text-sm">Sign In with Google</span>
+          </button>
+        </div>
       </div>
     </div>
   );
