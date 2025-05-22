@@ -47,7 +47,7 @@ const Stats = () => {
 
   return (
     <div className="p-6 md:p-10 bg-[#D9EAFD]  shadow-xl">
-      <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8">Platform Statistics</h2>
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-base-300 mb-8">Platform Statistics</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         <StatCard label="Users" value={10} color="text-indigo-600" />
         <StatCard label="Reviews" value={reviewCount} color="text-[#2DAA9E]" />

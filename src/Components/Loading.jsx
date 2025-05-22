@@ -5,7 +5,7 @@ const Loading = () => {
         <div className="flex justify-center items-center h-screen">
             <div className="flex flex-col items-center gap-4">
                 <span className="loading loading-spinner loading-lg text-primary"></span>
-                <p className="text-lg font-medium">Loading...</p>
+                <p className="text-lg font-medium text-base-300">Loading...</p>
             </div>
         </div>
     );

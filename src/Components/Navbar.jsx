@@ -147,7 +147,7 @@ const Navbar = () => {
           {/* User Dropdown Content */}
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-gradient-to-br from-white to-gray-50 text-gray-800 font-medium shadow-lg rounded-lg z-[1] mt-2 w-56 p-4 space-y-2 border border-gray-100"
+            className="menu menu-sm dropdown-content bg-[#BBCCDB] text-gray-800 font-medium shadow-lg rounded-lg z-[1] mt-2 w-56 p-4 space-y-2 border border-gray-100"
           >
             <li className="mb-2">
               <p className="text-primary font-bold text-sm uppercase tracking-wider justify-center">
@@ -155,7 +155,7 @@ const Navbar = () => {
               </p>
             </li>
 
-            <li className="flex items-center gap-3 p-2 bg-gray-50 rounded-lg">
+            <li className="flex items-center gap-3 p-2 rounded-lg">
               <div className="avatar placeholder">
                 <div className="bg-primary text-white rounded-full w-10 flex items-center justify-center">
                   {user?.displayName ? (
@@ -184,7 +184,7 @@ const Navbar = () => {
               </li>
             )}
 
-            <li className="mt-2">{authNavLinks}</li>
+            <div className="mt-2 flex flex-col gap-2">{authNavLinks}</div>
           </ul>
         </div>
       </div>

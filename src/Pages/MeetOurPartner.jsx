@@ -37,7 +37,7 @@ const MeetOurPartner = () => {
 
   return (
     <div className="py-10 bg-[#adc5dd]">
-      <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-center text-base-200 mb-8">
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-base-300 mb-8">
         Meet Our Partner
       </h2>
 

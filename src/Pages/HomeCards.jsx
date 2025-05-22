@@ -29,7 +29,7 @@ const HomeCards = ({ services }) => {
 
   return (
     <div className="w-full mx-auto p-4 sm:p-6 bg-[#adc5dd]">
-      <h2 className="text-2xl md:text-5xl font-bold text-center mb-6 md:mt-10 uppercase text-base-300">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 md:mt-10 uppercase text-base-300">
         Explore Our Services
       </h2>
 
