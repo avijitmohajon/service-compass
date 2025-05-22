@@ -12,17 +12,17 @@ const Services = () => {
       </h2>
 
       {/* Responsive Grid Layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {services.map((service) => (
           <div
             key={service._id}
-            className="rounded-lg shadow-2xl p-4 transition transform hover:scale-105 bg-[#c4daf0] text-base-300 flex flex-col"
+            className="rounded-lg shadow-2xl p-2 transition transform hover:scale-105 bg-[#c4daf0] text-base-300 flex flex-col h-full"
           >
             {/* Service Image */}
             <img
               src={service.image}
               alt={service.title}
-              className="w-full h-48 object-cover rounded-lg "
+              className="w-full h-28 object-cover rounded-lg "
             />
 
             {/* Service Info */}

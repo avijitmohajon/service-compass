@@ -1,19 +1,19 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-// import "swiper/css";
-// import "swiper/css/navigation";
-// import "swiper/css/pagination";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 // Example image imports (replace with your own)
-// import slide1 from "../assets/slide1.jpg";
-// import slide2 from "../assets/slide2.jpg";
-// import slide3 from "../assets/slide3.jpg";
+import slide1 from "../assets/home.jpg";
+import slide2 from "../assets/247 support.jpg";
+import slide3 from "../assets/repair.jpg";
 
 const Header = () => {
   return (
-    <div className="max-h-[60vh] overflow-hidden bg-[#D9EAFD]">
-      {/* <Swiper
+    <div className="max-h-[60vh] overflow-hidden bg-[#D9EAFD] ">
+      <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={30}
         slidesPerView={1}
@@ -27,7 +27,7 @@ const Header = () => {
           <img
             src={slide1}
             alt="Slide 1"
-            className="h-full w-auto object-contain"
+            className="h-full w-full object-cover"
           />
         </SwiperSlide>
 
@@ -35,7 +35,7 @@ const Header = () => {
           <img
             src={slide2}
             alt="Slide 2"
-            className="h-full w-auto object-contain"
+            className="h-full w-full object-cover"
           />
         </SwiperSlide>
 
@@ -43,10 +43,10 @@ const Header = () => {
           <img
             src={slide3}
             alt="Slide 3"
-            className="h-full w-auto object-contain"
+            className="h-full w-full object-cover"
           />
         </SwiperSlide>
-      </Swiper> */}
+      </Swiper>
     </div>
   );
 };

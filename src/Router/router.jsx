@@ -10,6 +10,7 @@ import MyReviews from "../Pages/MyReviews";
 import MyServices from "../Pages/MyServices";
 import SecureRouter from "./PrivateRoute";
 import Error from "../Pages/Error";
+import AboutUs from "../Components/AboutUs";
 
 // Base URL
 const baseURL = "https://service-compass-server.vercel.app";
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
-    errorElement: <Error/>,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -27,7 +28,9 @@ const router = createBrowserRouter([
           try {
             const res = await fetch(`${baseURL}/services`);
             if (!res.ok) {
-              throw new Response("Failed to load services", { status: res.status });
+              throw new Response("Failed to load services", {
+                status: res.status,
+              });
             }
             return res;
           } catch (error) {
@@ -42,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/about",
+        element: <AboutUs />,
       },
       {
         path: "/addservice",
@@ -77,7 +84,9 @@ const router = createBrowserRouter([
           try {
             const res = await fetch(`${baseURL}/services`);
             if (!res.ok) {
-              throw new Response("Failed to load services", { status: res.status });
+              throw new Response("Failed to load services", {
+                status: res.status,
+              });
             }
             return res;
           } catch (error) {

@@ -68,11 +68,11 @@ const HomeCards = ({ services }) => {
 
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:pb-10 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:pb-10 ">
         {limitedServices.map((service) => (
           <div
             key={service._id}
-            className="rounded-lg shadow-2xl p-4 transition transform hover:scale-105 bg-[#c4daf0] text-base-300 flex flex-col h-full"
+            className="rounded-lg shadow-2xl p-2 transition transform hover:scale-105 bg-[#c4daf0] text-base-300 flex flex-col h-full"
           >
             <img
               src={service.image}

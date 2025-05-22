@@ -82,7 +82,7 @@ const ServiceDetails = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-6 my-6 border shadow-lg rounded-lg bg-[#e2f2fd] ">
+    <div className="max-w-4xl mx-auto p-4  my-6 border shadow-lg rounded-lg bg-[#D8EAFC] ">
       {/* Service Image */}
       <img
         src={service.image}
@@ -107,19 +107,19 @@ const ServiceDetails = () => {
 
       {/* Reviews Section */}
       <div className="mt-8 ">
-        <h3 className="text-2xl font-semibold text-gray-800">
+        <h3 className="text-2xl font-semibold text-gray-800 ">
           Reviews ({reviews.length})
         </h3>
         <div className="mt-4 space-y-4">
           {reviews.length === 0 ? (
-            <p className="text-gray-500">
+            <p className="text-base-300">
               No reviews yet. Be the first to add one!
             </p>
           ) : (
             reviews.map((review, index) => (
               <div
                 key={index}
-                className="border p-4 rounded-lg shadow-lg text-base-300"
+                className="border border-gray-400 p-4 rounded-lg shadow-lg text-base-300 bg-[#15191c1c]"
               >
                 <div className="flex items-center space-x-4">
                   <img
@@ -129,7 +129,7 @@ const ServiceDetails = () => {
                   />
                   <div>
                     <h4 className="font-semibold">{review.userName}</h4>
-                    <p className="text-sm text-gray-500">{review.reviewDate}</p>
+                    <p className="text-sm text-base-300">{review.reviewDate}</p>
                   </div>
                 </div>
                 <p className="mt-2">{review.reviewText}</p>
@@ -137,10 +137,10 @@ const ServiceDetails = () => {
                   initialRating={review.rating}
                   readonly
                   emptySymbol={
-                    <span className="text-gray-400 text-2xl">☆</span>
+                    <span className="text-base-300 text-2xl">☆</span>
                   }
                   fullSymbol={
-                    <span className="text-yellow-700 text-2xl">★</span>
+                    <span className="text-yellow-500 text-2xl">★</span>
                   }
                 />
               </div>
@@ -156,7 +156,7 @@ const ServiceDetails = () => {
           <form onSubmit={handleReviewSubmit} className="mt-4">
             {/* Review Textarea */}
             <textarea
-              className="w-full border rounded-lg p-2"
+              className="w-full border rounded-lg p-2 bg-base-300"
               placeholder="Write your review..."
               value={reviewText}
               onChange={(e) => setReviewText(e.target.value)}
@@ -169,7 +169,7 @@ const ServiceDetails = () => {
               <Rating
                 initialRating={rating}
                 emptySymbol={<span className="text-black  text-2xl">☆</span>}
-                fullSymbol={<span className="text-yellow-700 text-2xl">★</span>}
+                fullSymbol={<span className="text-yellow-500 text-2xl">★</span>}
                 onChange={(value) => {
                   // console.log("Selected rating:", value);
                   setRating(value);
